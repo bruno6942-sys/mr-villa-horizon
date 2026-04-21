@@ -1,1 +1,320 @@
-Hello World
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison moderne d'architecte 70s — Villa Horizon · Saint-Étienne</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Découvrez la Villa Horizon à Saint-Étienne : une maison moderne d'architecte des années 70 au style brutaliste unique. Architecture béton et nature, plans originaux disponibles.">
+    <meta name="keywords" content="maison architecte 70, architecture brutaliste, Saint-Étienne, Loire, Villa Horizon, patrimoine 20ème siècle, Marcel Ramond, maison moderne béton">
+    <meta name="author" content="Marcel Ramond · MR">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --deep-forest: #2d3a3a;
+            --moss: #4a5d4e;
+            --earth: #d7c0ae;
+            --sand: #faf8f5;
+            --clay: #8c6a5e;
+            --text: #2d3436;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--sans); 
+            background-color: var(--sand); 
+            color: var(--text); 
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(74, 93, 78, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { 
+            font-family: var(--serif); 
+            font-size: 1.6rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            text-decoration: none; 
+            color: var(--deep-forest); 
+            font-weight: 400;
+        }
+        
+        .logo span { 
+            color: var(--moss); 
+            font-weight: 300; 
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .location-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--moss);
+            font-weight: 500;
+        }
+
+        main {
+            padding-top: 8rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h1 { 
+            font-family: var(--serif); 
+            font-size: clamp(2.2rem, 7vw, 4.5rem); 
+            font-weight: 300; 
+            line-height: 1.1; 
+            color: var(--deep-forest);
+            margin-bottom: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            color: var(--moss);
+        }
+
+        .gallery-container {
+            padding: 0 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #e5e5e5;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            filter: sepia(10%) contrast(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(45, 58, 58, 0.7));
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .item-caption {
+            opacity: 1;
+        }
+
+        .description-section {
+            background-color: var(--moss);
+            color: var(--sand);
+            padding: 8rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .description-section h2 {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .description-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .contact-cta {
+            padding: 8rem 2rem;
+            text-align: center;
+            background-color: var(--deep-forest);
+            color: white;
+        }
+
+        .contact-cta h2 {
+            font-family: var(--serif);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .email-link {
+            display: inline-block;
+            color: var(--earth);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: var(--serif);
+            border-bottom: 1px solid var(--earth);
+            transition: color 0.3s, border-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .email-link:hover {
+            color: white;
+            border-color: white;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--sand);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--moss);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .gallery-container { padding: 0 1rem; }
+            header { padding: 1rem; }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">Villa Horizon <span>· MR</span></a>
+    <div class="location-tag">Saint-Étienne, Loire (42)</div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1 class="reveal">Maison moderne d'architecte des années 70</h1>
+        <p class="lead reveal">Une œuvre architecturale radicale nichée au cœur d'un écrin végétal. Un héritage brutaliste unique conservé avec soin.</p>
+    </section>
+
+    <div class="gallery-container">
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/a712c93945414d649f874c76b1da1d0d_Maison%20moderne%20d'architect%20des%20anne%CC%80e%2070.png" alt="Archive Historique">
+                <div class="item-caption">Archive Historique — Vue d'ensemble</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/9725f0e1f324467793d5a7d0e404b901_Maison%20moderne%20d'architect%20des%20anne%CC%80e%2070.png" alt="Architecture brutaliste">
+                <div class="item-caption">Perspective Architecturale</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/d28ec9790b414d02996d9326f376f251_Maison%20moderne%20d'architect%20des%20anne%CC%80e%2070.png" alt="Détail des volumes">
+                <div class="item-caption">Détail des volumes et du garage</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/54d89a5988e24aa980c1471057db9160_face%20arrie_re.jpeg" alt="Façade arrière">
+                <div class="item-caption">Façade Arrière — Béton et Transparence</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/9cafe172b6f843788459a240f553f5f6_IMG_3875.jpeg" alt="Le Jardin">
+                <div class="item-caption">Le Jardin — Intégration paysagère</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/51bb94454666405cbd6fb16c3c257f89_IMG_3885.jpeg" alt="Le Panorama">
+                <div class="item-caption">Le Panorama — Saint-Étienne</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/c61901e3bbe644ada08e96cd90e97a0c_Plan.png" alt="Plan Original RDC">
+                <div class="item-caption">Plan Original — Rez-de-chaussée</div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://customer-assets.emergentagent.com/wingman/7205388c-82aa-49b3-910c-2cd464800dd3/attachments/8e342fb0cfa44675a717fe7886adab0b_Plan%20e_tage.png" alt="Plan Original Étage">
+                <div class="item-caption">Plan Original — Étage</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="description-section reveal">
+        <h2>Un Patrimoine Architectural</h2>
+        <div class="description-content">
+            <p>Villa Horizon est bien plus qu'une simple résidence. Conçue dans la ferveur créative des années 1970, elle incarne le mouvement brutaliste par son utilisation audacieuse du béton brut et ses lignes géométriques tranchées. Sa structure unique, pensée pour dialoguer avec la topographie de Saint-Étienne, offre des volumes intérieurs exceptionnels et une luminosité naturelle omniprésente.</p>
+        </div>
+    </section>
+
+    <section class="contact-cta reveal">
+        <h2>Une Vision à Perpétuer</h2>
+        <p>L'intégralité des plans originaux et des dossiers techniques est disponible sur demande pour les passionnés d'architecture et de patrimoine.</p>
+        <a href="mailto:marcel.ramond@Orange.fr" class="email-link">marcel.ramond@Orange.fr</a>
+    </section>
+</main>
+
+<footer>
+    © 2026 Villa Horizon · MR — Tous droits réservés · Architecture Brutaliste 70s
+</footer>
+
+<script>
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
